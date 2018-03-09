@@ -30,7 +30,8 @@
     UINavigationItem *titleItem = [[UINavigationItem alloc]initWithTitle:@"ScanDocument"];
     [navigationBar pushNavigationItem:titleItem animated:YES];
     [self.view addSubview:navigationBar];
-    
+    ///////////////////set the log level//////////////////
+	[DcsView setLogLevel:DLLE_DEBUG];
     ///////////////////add DcsView////////////////////////
     dcsView = [[DcsView alloc]initWithFrame:CGRectMake(0, navigationBar.frame.size.height, self.view.frame.size.width, self.view.frame.size.height-navigationBar.frame.size.height)];
     //Show the imageGalleryView when DcsView loaded
@@ -66,7 +67,7 @@
     NSLog(@"PreCapture invoked");
     return YES;
 }
-- (void) onPostCapture:(id)sender{
+- (void) onPostCapture:(id)sender image:(DcsImage *)image{
     NSLog(@"PostCapture invoked");
 }
 
